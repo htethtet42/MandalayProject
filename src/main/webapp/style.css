@@ -1,0 +1,349 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Pyidaungsu', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    width: 100%;
+    background: linear-gradient(to left, #deae49, #c3f24b);
+    color: white;
+}
+
+.nav-inner {
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-menu a {
+    color: #333;
+    text-decoration: none;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    border-bottom: 2px solid yellow;
+    font-weight: bold;
+}
+
+.logo {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* =====================
+   HOME PAGE
+   ===================== */
+
+.home-overlay {
+	min-height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 80px 20px;
+}
+
+/* Hero section */
+.home-hero {
+    min-height: calc(100vh - 70px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.home-container {
+    background: rgba(255, 255, 255, 0.4); /* White semi-transparent */
+    backdrop-filter: blur(10px);    /* Glassmorphism effect */
+    max-width: 800px;
+    padding: 60px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    color: #222; /* Change text to white for contrast */
+}
+
+.home-container h1 {
+    font-size: 40px;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.3);
+    margin-bottom: 20px;
+    color:#333;
+}
+
+.home-container p {
+    font-size: 18px;
+    line-height: 2.2;
+    color:#333;
+    margin-bottom: 30px;
+}
+
+/* Buttons */
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.btn {
+    padding: 14px 34px;
+    border-radius: 30px;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+/* Primary button */
+.btn.primary {
+    background: linear-gradient(45deg, #deae49, #b4882f);
+    border: none;
+    box-shadow: 0 4px 15px rgba(222, 174, 73, 0.4);
+}
+
+.btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(222, 174, 73, 0.6);
+}
+
+/* Secondary button */
+.btn.secondary {
+    background: transparent;
+    color: #333;
+    border: 2px solid #333;
+}
+
+.btn.secondary:hover {
+    border: 2px solid #fff;
+    color: #fff;
+}
+
+.enter-btn {
+    background: #333;
+    color: white;
+    padding: 14px 32px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+}
+
+.enter-btn:hover {
+    background: #555;
+}
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-page {
+    padding: 50px 20px;
+}
+
+.about-card {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.about-card h1 {
+    margin-bottom: 20px;
+}
+
+.about-card p {
+    font-size: 17px;
+    line-height: 2.2;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* MAP */
+.map-container {
+    margin-top: 30px;
+    height: 350px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* =====================
+   PLACES PAGE (for earlier places.jsp)
+   ===================== */
+.place-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.place-card {
+    display: flex;
+    gap: 40px;
+    background: #f5f5f5;
+    padding: 30px;
+    border-radius: 12px;
+    border: 5px solid red;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+}
+
+.place-text,
+.place-image{
+    transition: opacity 0.3s ease;
+}
+
+.place-text p {
+    line-height: 1.7;
+    text-align: justify;
+}
+
+
+/* PAGE HEADER */
+.page-header {
+    margin-top: 80px;
+    padding: 60px;
+    background: linear-gradient(to right, #333, #555);
+    color: white;
+    text-align: center;
+}
+
+
+/* CONTACT */
+.contact-section {
+    padding: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.contact-form button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+/* ARROW BUTTON */
+.toggle-btn {
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+/* ROTATE ARROW */
+.toggle-btn.active {
+    transform: rotate(180deg);
+}
+
+/* HIDDEN GALLERY */
+.place-gallery {
+    display: none !important;
+    margin-top: 20px;
+    border: 5px solid blue;
+    gap: 20px;
+}
+
+/* SHOW GALLERY */
+.place-gallery.show {
+    display: flex !important;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+.place-card.gallery-open .place-text,
+.place-card.gallery-open .place-image {
+    display: none !important;
+}
+
+.place-gallery figcaption {
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+.place-gallery figure {
+    width: 220px;
+    text-align: center;
+}
+
+/* FOOTER */
+footer {
+    background: #c3f24b;
+    color: #111;
+    text-align: center;
+    padding: 15px 18px;
+}
+
+footer .social-icons i {
+    width: 24px;
+    margin: 0 10px;
+    vertical-align: middle;
+    transition: transform 0.3s;
+    font-size: 25px;
+}
+
+footer .social-icons i:hover {
+    transform: scale(1.2);
+}
+
+/* =====================
+   ANIMATION
+   ===================== */
+.fade {
+    animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 900px) {
+    .place-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .place-image img {
+        width: 100%;
+    }
+
+    .home-container {
+        padding: 40px 25px;
+    }
+}

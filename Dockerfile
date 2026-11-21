@@ -8,7 +8,7 @@ RUN rm -rf /usr/local/tomcat/webapps/*
 RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml
 
 # Copy the application WAR file
-COPY MandalayProject.war /usr/local/tomcat/webapps/ROOT.war
+https://mandalayproject.dockhosting.cloud/
 
 # Expose Render's default web service port
 EXPOSE 10000

@@ -1,13 +1,17 @@
+
 FROM tomcat:10.1-jdk17
 
-# Remove default apps
+# Remove default Tomcat applications
 RUN rm -rf /usr/local/tomcat/webapps/*
 
-# Copy the WAR file (Make sure this file is committed to GitHub!)
+# Configure Tomcat to listen on Render's port
+RUN sed -i 's/port="8080"/port="10000"/' /usr/local/tomcat/conf/server.xml
+
+# Copy the application WAR file
 COPY MandalayProject.war /usr/local/tomcat/webapps/ROOT.war
 
-# Use the PORT environment variable provided by Railway
-ENV PORT 8080
-EXPOSE 8080
+# Expose Render's default web service port
+EXPOSE 10000
 
+# Start Tomcat
 CMD ["catalina.sh", "run"]

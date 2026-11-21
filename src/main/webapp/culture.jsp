@@ -251,7 +251,7 @@ footer .social-icons i:hover {
 
 <nav class="navbar">
     <div class="nav-inner">
-        <div class="logo">Mandalay</div>
+        <div class="logo">ရွှေမန္တလေး</div>
         <ul class="nav-menu">
             <li><a href="home.jsp">ပင်မစာမျက်နှာ</a></li>
             <li><a href="about.jsp">မန္တလေးမြေပုံ</a></li>
@@ -271,7 +271,7 @@ footer .social-icons i:hover {
     </div>
 </section>
 
-<h2 class="section-title">ရိုးရာယဉ်ကျေးမှု၏ မဏ္ဍိုင်လေးရပ်</h2>
+<h2 class="section-title">ရိုးရာယဉ်ကျေးမှု</h2>
 
 <section class="culture-container">
 

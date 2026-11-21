@@ -86,7 +86,7 @@ footer .social-icons i:hover {
 <body>
 <nav class="navbar">
     <div class="nav-inner">
-        <div class="logo">Mandalay</div>
+        <div class="logo">ရွှေမန္တလေး</div>
         <ul class="nav-menu">
             <li><a href="home.jsp">ပင်မစာမျက်နှာ</a></li>
             <li><a href="about.jsp">မန္တလေးမြေပုံ</a></li>

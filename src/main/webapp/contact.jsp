@@ -360,8 +360,8 @@ footer .social-icons i:hover {
                 contactForm
             )
             .then(function() {
-                alert("Your message has been sent successfully!");
                 contactForm.reset();
+                showSuccessPopup();
             })
             .catch(function(error) {
                 console.error("EmailJS Error:", error);

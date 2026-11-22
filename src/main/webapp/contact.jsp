@@ -213,7 +213,7 @@ footer .social-icons i:hover {
 }
 %>
 
-<form id="contact-form" action="ContactServlet" method="post">
+<form id="contact-form" action="#" method="post" onsubmit="return false;">
     <input type="text" name="userName" class="input-field" placeholder="Your Name...✨" required>
     <input type="email" name="email" class="input-field" placeholder="Your Email Address...📬" required pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Only Gmail addresses are allowed (example@gmail.com)">
     <textarea name="userMessage" class="input-field" placeholder="Your Message...💬" rows="6" required></textarea>
@@ -232,23 +232,29 @@ footer .social-icons i:hover {
 
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
+
 <script>
+    // Initialize EmailJS
     emailjs.init({
         publicKey: "lkndoKfGwitZQepv7"
     });
 
-    // Select your existing contact form
     const contactForm = document.getElementById("contact-form");
+    const submitButton = contactForm.querySelector(".submit-btn");
 
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
 
-        const email = contactForm.querySelector('[name="email"]').value;
+        const email = contactForm.querySelector('[name="email"]').value.trim();
 
+        // Gmail validation
         if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
             alert("Please enter a valid Gmail address.");
             return;
         }
+
+        submitButton.disabled = true;
+        submitButton.textContent = "Sending...";
 
         emailjs.sendForm(
             "service_dyny6bt",
@@ -260,13 +266,15 @@ footer .social-icons i:hover {
             contactForm.reset();
         })
         .catch(function(error) {
-            console.error(error);
+            console.error("EmailJS Error:", error);
             alert("Failed to send your message. Please try again.");
+        })
+        .finally(function() {
+            submitButton.disabled = false;
+            submitButton.textContent = "Send Message";
         });
     });
-    event.preventDefault();
 </script>
-
 
 </body>
 </html>

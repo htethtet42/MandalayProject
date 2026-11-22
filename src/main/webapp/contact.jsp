@@ -81,6 +81,83 @@ body {
     overflow: hidden;
     box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
+/* Custom Success Popup */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+    padding: 20px;
+}
+
+.popup-box {
+    background: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 35px 25px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.25);
+    animation: popupAppear 0.3s ease;
+}
+
+.popup-icon {
+    width: 65px;
+    height: 65px;
+    background: #e6f9ed;
+    color: #22a45a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    font-weight: bold;
+    margin: 0 auto 20px;
+}
+
+.popup-box h2 {
+    color: #222;
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.popup-box p {
+    color: #666;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.popup-box button {
+    background: #22a45a;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.popup-box button:hover {
+    background: #188344;
+    transform: translateY(-2px);
+}
+
+@keyframes popupAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 /* FOOTER */
 footer {
     background: #c3f24b;
@@ -221,6 +298,20 @@ footer .social-icons i:hover {
 </form>
     </div>
 </div>
+<!-- Custom Success Popup -->
+<div id="success-popup" class="popup-overlay">
+    <div class="popup-box">
+        <div class="popup-icon">✓</div>
+        <h2>Message Sent Successfully!</h2>
+        <p>
+            Thank you for contacting us.
+            Your message has been delivered successfully.
+        </p>
+        <button type="button" onclick="closeSuccessPopup()">
+            OK
+        </button>
+    </div>
+</div>
 <footer>
     <p>© 2026 Mandalay Project University Java Web Application</p>
     <div class="social-icons">
@@ -229,6 +320,7 @@ footer .social-icons i:hover {
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
@@ -281,6 +373,13 @@ footer .social-icons i:hover {
             });
         });
     });
+    function showSuccessPopup() {
+    document.getElementById("success-popup").style.display = "flex";
+    }
+
+    function closeSuccessPopup() {
+        document.getElementById("success-popup").style.display = "none";
+    }
 </script>
 
 

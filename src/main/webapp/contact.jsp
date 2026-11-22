@@ -229,52 +229,60 @@ footer .social-icons i:hover {
         <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
     </div>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-
 <script>
-    // Initialize EmailJS
-    emailjs.init({
-        publicKey: "lkndoKfGwitZQepv7"
-    });
+    // Wait until the page is ready
+    document.addEventListener("DOMContentLoaded", function () {
 
-    const contactForm = document.getElementById("contact-form");
-    const submitButton = contactForm.querySelector(".submit-btn");
+        const contactForm = document.getElementById("contact-form");
+        const submitButton = contactForm.querySelector(".submit-btn");
 
-    contactForm.addEventListener("submit", function(event) {
-        event.preventDefault();
-
-        const email = contactForm.querySelector('[name="email"]').value.trim();
-
-        // Gmail validation
-        if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
-            alert("Please enter a valid Gmail address.");
+        // Check whether EmailJS loaded
+        if (typeof emailjs === "undefined") {
+            alert("EmailJS failed to load. Please refresh the page.");
             return;
         }
 
-        submitButton.disabled = true;
-        submitButton.textContent = "Sending...";
+        // Initialize EmailJS
+        emailjs.init({
+            publicKey: "lkndoKfGwitZQepv7"
+        });
 
-        emailjs.sendForm(
-            "service_dyny6bt",
-            "template_p7891a4",
-            contactForm
-        )
-        .then(function() {
-            alert("Your message has been sent successfully!");
-            contactForm.reset();
-        })
-        .catch(function(error) {
-            console.error("EmailJS Error:", error);
-            alert("Failed to send your message. Please try again.");
-        })
-        .finally(function() {
-            submitButton.disabled = false;
-            submitButton.textContent = "Send Message";
+        contactForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const email = contactForm.querySelector('[name="email"]').value.trim();
+
+            if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
+                alert("Please enter a valid Gmail address.");
+                return;
+            }
+
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending...";
+
+            emailjs.sendForm(
+                "service_dyny6bt",
+                "template_p7891a4",
+                contactForm
+            )
+            .then(function() {
+                alert("Your message has been sent successfully!");
+                contactForm.reset();
+            })
+            .catch(function(error) {
+                console.error("EmailJS Error:", error);
+                alert("Failed to send your message. Please try again.");
+            })
+            .finally(function() {
+                submitButton.disabled = false;
+                submitButton.textContent = "Send Message";
+            });
         });
     });
 </script>
+
 
 </body>
 </html>

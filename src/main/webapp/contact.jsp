@@ -230,5 +230,44 @@ footer .social-icons i:hover {
     </div>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+<script>
+    emailjs.init({
+        publicKey: "lkndoKfGwitZQepv7"
+    });
+
+    // Select your existing contact form
+    const contactForm = document.querySelector(
+        'form[action="ContactServlet"]'
+    );
+
+    contactForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const email = contactForm.querySelector('[name="email"]').value;
+
+        if (!/^[a-zA-Z0-9._%+-]+@gmail\.com$/.test(email)) {
+            alert("Please enter a valid Gmail address.");
+            return;
+        }
+
+        emailjs.sendForm(
+            "service_dyny6bt",
+            "template_p7891a4",
+            contactForm
+        )
+        .then(function() {
+            alert("Your message has been sent successfully!");
+            contactForm.reset();
+        })
+        .catch(function(error) {
+            console.error(error);
+            alert("Failed to send your message. Please try again.");
+        });
+    });
+</script>
+
+
 </body>
 </html>

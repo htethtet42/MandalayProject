@@ -213,7 +213,7 @@ footer .social-icons i:hover {
 }
 %>
 
-<form action="ContactServlet" method="post">
+<form id="contact-form" action="ContactServlet" method="post">
     <input type="text" name="userName" class="input-field" placeholder="Your Name...✨" required>
     <input type="email" name="email" class="input-field" placeholder="Your Email Address...📬" required pattern="^[a-zA-Z0-9._%+-]+@gmail\.com$" title="Only Gmail addresses are allowed (example@gmail.com)">
     <textarea name="userMessage" class="input-field" placeholder="Your Message...💬" rows="6" required></textarea>
@@ -238,9 +238,7 @@ footer .social-icons i:hover {
     });
 
     // Select your existing contact form
-    const contactForm = document.querySelector(
-        'form[action="ContactServlet"]'
-    );
+    const contactForm = document.getElementById("contact-form");
 
     contactForm.addEventListener("submit", function(event) {
         event.preventDefault();
@@ -266,6 +264,7 @@ footer .social-icons i:hover {
             alert("Failed to send your message. Please try again.");
         });
     });
+    event.preventDefault();
 </script>
 
 

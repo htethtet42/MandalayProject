@@ -38,6 +38,7 @@ The application includes informational pages, visual content, and a contact form
 | Docker | Application containerization |
 | Git & GitHub | Version control and source code management |
 | DockHosting | Website deployment |
+| cron-job.org | Scheduled website availability checks |
 
 ## 📂 Project Structure
 
@@ -95,6 +96,93 @@ EXPOSE 8080
 
 CMD ["catalina.sh", "run"]
 ```
+🔄 Free Hosting & Keep-Alive Configuration
+
+Hosting Limitation
+
+MandalayProject is hosted on DockHosting's free hosting plan.
+
+According to DockHosting's hosting policy, free applications automatically go to sleep after one hour without visitors.
+
+When someone visits a sleeping application, the server needs a few seconds to wake up. During this process, visitors may see a "Waking up" page.
+
+Free Keep-Alive Attempt Using cron-job.org
+
+To reduce inactivity and periodically check website availability, an external scheduling service called cron-job.org is configured.
+
+Configuration:
+
+Setting
+
+Value
+
+Service
+
+cron-job.org
+
+Job Name
+
+MandalayProjectKeepAlive
+
+Target URL
+
+https://mandalayproject.dockhosting.cloud/
+
+HTTP Method
+
+GET
+
+Execution Interval
+
+Every 15 minutes
+
+Job Status
+
+Enabled
+
+Cost
+
+Free
+
+How It Works
+
+cron-job.org sends an automated HTTP GET request to the deployed website every 15 minutes.
+
+DockHosting receives the request.
+
+cron-job.org records the HTTP response and execution status.
+
+Successful requests indicate that the website responded to the automated check.
+
+Execution Result
+
+The first scheduled execution was successful.
+
+Metric
+
+Result
+
+HTTP Response
+
+200 OK
+
+Request Duration
+
+506 ms
+
+Execution Status
+
+Successful
+
+Important Note:
+
+A successful HTTP 200 response confirms that the website responds to the automated request. However, DockHosting does not explicitly guarantee that automated monitoring requests count as user visits or prevent the free application from sleeping.
+
+Therefore, this configuration is a free, best-effort availability check and keep-alive attempt, not a guaranteed 24/7 uptime solution.
+
+No changes to the deployed JSP, Java Servlet, Docker, or database configuration are required for this external monitoring setup.
+
+Monitoring Service: https://cron-job.org/
 
 ## 📬 Contact Form
 
